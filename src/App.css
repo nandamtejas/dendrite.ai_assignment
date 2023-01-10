@@ -7,6 +7,99 @@
   pointer-events: none;
 }
 
+
+
+.top {
+  padding: 1px; /* some padding */
+  text-align: center; /* center the text */
+  background-color: bisque; /* green background */
+  color: rgba(58, 58, 58, 0.998); /* white text color */
+  box-shadow: 1px 0.5px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+  font-size: 40px;
+}
+
+.navbar {
+  overflow: hidden;
+  /* border-top: 1px solid #282c34; */
+  background-color: rgba(0, 0, 0, 0.164);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 12px;
+  text-decoration: none;
+}
+
+.navbar a.right {
+  float: right;
+}
+
+.navbar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: black; /* Black text color */
+  transition: 0.25s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+
+.list-group {
+  background-color: #f1f1f1;
+}
+
+.list-group-item {
+  border: none;
+  padding: 10px;
+  border: none;
+  background-color: #f1f1f1;
+  /* box-shadow: -8px 5px 5px -1px rgba(0, 0, 0, 0.164); */
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  
+  padding: 10px;
+  border: none;
+  box-shadow: -8px 5px 5px -1px rgba(0, 0, 0, 0.164);
+}
+
+.list-group-item:active {
+  box-shadow: none;
+}
+
+/* Main column */
+.main {
+  padding: 15px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem;
+  height: min-content;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.card {
+  padding: 0.5rem;
+}
+
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -24,6 +117,9 @@
   color: white;
 }
 
+
+
+
 .App-link {
   color: #61dafb;
 }
@@ -34,5 +130,20 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
   }
 }
