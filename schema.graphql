@@ -1,0 +1,65 @@
+scalar Upload
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Todo {
+    id: ID!
+    title: String!
+    description: String!
+    time: String!
+    isSubscribed: Boolean
+}
+
+type StripePaymentRequest {
+    success: Boolean!
+    errors: [String]
+    session: String
+    public: String
+    url: String
+
+}
+
+type TodosResult {
+    success: Boolean!
+    errors: [String]
+    todos: [Todo]
+}
+
+type TodoResult {
+    success: Boolean!
+    errors: [String]
+    todo: Todo
+}
+
+type DeleteTodoResult {
+    success: Boolean!
+    errors: [String]
+}
+
+type UploadImageResult {
+    success: Boolean!
+    errors: [String]
+}
+
+type afterCheckoutPaymentResult {
+    success: Boolean!
+    errors: [String]
+}
+
+type Query {
+    todos: TodosResult!
+    todo(todoId: ID!): TodoResult!
+    checkoutPayment: StripePaymentRequest!
+    afterCheckoutPayment(isSubscribed: Boolean!): afterCheckoutPaymentResult!
+}
+
+
+type Mutation {
+    addTodo(title: String!, description: String!, time: String): TodoResult!
+    editTodo(todoId: ID!, title: String, description: String, time: String): TodoResult!
+    deleteTodo(todoId: ID!): DeleteTodoResult!
+    uploadImage(todoId: ID!, image: Upload!): UploadImageResult!
+}
